@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyBLElibrary.iml" filepath="$PROJECT_DIR$/MyBLElibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bleclientlib/bleclientlib.iml" filepath="$PROJECT_DIR$/bleclientlib/bleclientlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bleserverlib/bleserverlib.iml" filepath="$PROJECT_DIR$/bleserverlib/bleserverlib.iml" />
     </modules>
   </component>
 </project>
