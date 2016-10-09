@@ -5,7 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/MyBLElibrary.iml" filepath="$PROJECT_DIR$/MyBLElibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/bleclientlib/bleclientlib.iml" filepath="$PROJECT_DIR$/bleclientlib/bleclientlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bleheadset/bleheadset.iml" filepath="$PROJECT_DIR$/bleheadset/bleheadset.iml" />
       <module fileurl="file://$PROJECT_DIR$/bleserverlib/bleserverlib.iml" filepath="$PROJECT_DIR$/bleserverlib/bleserverlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/uniconnectancs/uniconnectancs.iml" filepath="$PROJECT_DIR$/uniconnectancs/uniconnectancs.iml" />
     </modules>
   </component>
 </project>

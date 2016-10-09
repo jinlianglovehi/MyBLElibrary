@@ -1,1 +1,1 @@
-include ':app', ':bleserverlib', ':bleclientlib'
+include ':app', ':bleserverlib', ':bleclientlib', ':bleheadset', ':uniconnectancs'
