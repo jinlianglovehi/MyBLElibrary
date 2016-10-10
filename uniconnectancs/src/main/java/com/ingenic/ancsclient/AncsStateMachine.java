@@ -14,6 +14,7 @@ import com.android.internal.util.State;
 import com.android.internal.util.StateMachine;
 import com.ingenic.ancsclient.PowerWorker.PowerWorkerCallback;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
@@ -279,14 +280,14 @@ public class AncsStateMachine extends StateMachine {
 			switch (message.what){
 				case CMD_EVENT_FOR_BONDING:
 					device = (BluetoothDevice)message.obj;
-					device.createBond(BluetoothDevice.TRANSPORT_LE);
+					device.createBond();
 					sendMessageDelayed(CMD_BONDING_TIMEOUT, TOUT_BONDING_MS);
 					sendMessageDelayed(CMD_BONDING_CHECK, device, TDELAY_GATT_MESSAGE_MS);
 					return HANDLED;
 				case CMD_BONDING_CHECK://Connecting device if encrypted,regardless paring in process
 					AncsLog.d("CMD_BONDING_CHECK...");
 					device = (BluetoothDevice)message.obj;
-					boolean isConnEncryped = device.isEncrypted();
+					boolean isConnEncryped = isEncrypted(device); // 需要加密
 					if(isConnEncryped){
 						removeMessages(CMD_BONDING_TIMEOUT);
 						sendMessageDelayed(CMD_CONNECTING, device, TDELAY_GATT_MESSAGE_MS);
@@ -378,7 +379,7 @@ public class AncsStateMachine extends StateMachine {
 				case CMD_GATTC_SERVICES_DISCOVER:
 					gatt = (BluetoothGatt)message.obj;
 					sendMessageDelayed(CMD_GATTC_SERV_DISC_TIMEOUT, TOUT_SERVICES_DISCOVER_MS);
-					gatt.refresh();
+					refresh(gatt);// 需要通过反射获取方法
 					gatt.discoverServices();
 					return HANDLED;
 				case CMD_GATTC_SERV_DISC_ERR:
@@ -620,5 +621,46 @@ public class AncsStateMachine extends StateMachine {
 		public static void exit(String state) {
 			//AncsLog.d("StateTran: State exit:"+state);
 		}
+	}
+
+	// 通过反射获取方法；
+	/**
+	 * reflesh
+	 */
+	private static boolean refresh (BluetoothGatt gatt ){
+
+		try {
+			final Method refresh = BluetoothGatt.class.getMethod("refresh");
+			if (refresh != null) {
+				final boolean success = (Boolean) refresh.invoke(gatt);
+				return success;
+			}
+		} catch (Exception e) {
+		}
+		return false;
+	}
+	/**
+	 * 判断设备加密
+	 * @param bluetoothDevice
+	 * @return
+     */
+	private static boolean isEncrypted(BluetoothDevice bluetoothDevice){
+		// TODO: 16-10-9  需要更新 
+		return true;
+//		return  bluetoothDevice.isEncrypted();
+		// 新版本的没有api 内容
+//
+//		try {
+//			final Method refresh = BluetoothDevice.class.getMethod("refresh");
+//			if (refresh != null) {
+//				final boolean success = (Boolean) refresh.invoke(gatt);
+//				return success;
+//			}
+//		} catch (Exception e) {
+//		}
+//		return false;
+
+
+
 	}
 }

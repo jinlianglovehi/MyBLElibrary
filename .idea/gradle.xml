@@ -8,20 +8,24 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/android-lite-bluetoothle" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/bleclientlib" />
             <option value="$PROJECT_DIR$/bleheadset" />
             <option value="$PROJECT_DIR$/bleserverlib" />
+            <option value="$PROJECT_DIR$/testresource" />
             <option value="$PROJECT_DIR$/uniconnectancs" />
           </set>
         </option>
         <option name="myModules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/android-lite-bluetoothle" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/bleclientlib" />
             <option value="$PROJECT_DIR$/bleheadset" />
             <option value="$PROJECT_DIR$/bleserverlib" />
+            <option value="$PROJECT_DIR$/testresource" />
             <option value="$PROJECT_DIR$/uniconnectancs" />
           </set>
         </option>

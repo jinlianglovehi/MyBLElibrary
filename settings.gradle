@@ -1,1 +1,1 @@
-include ':app', ':bleserverlib', ':bleclientlib', ':bleheadset', ':uniconnectancs'
+include ':app', ':bleserverlib', ':bleclientlib', ':bleheadset', ':uniconnectancs', ':testresource', ':android-lite-bluetoothle'
